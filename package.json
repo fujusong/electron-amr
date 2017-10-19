@@ -1,0 +1,27 @@
+{
+  "name": "electron-amr-demo",
+  "version": "1.0.0",
+  "productName": "AMRPlay",
+  "description": "A Electron application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build:osx": "electron-packager . $npm_package_productName --out=dist --ignore='^/dist$' --overwrite --prune --asar --arch=all --platform=darwin --icon=./resources/icon.icns --version=$npm_package_electronVersion --app-version=$npm_package_version"
+  },
+  "repository": "https://github.com/electron/electron-quick-start",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
+  "author": "GitHub",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "~1.7.8",
+    "electron-inspector": "^0.1.4",
+    "electron-packager": "^8.7.2",
+    "node-inspector": "^1.1.1"
+  }
+}

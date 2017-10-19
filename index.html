@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>My App</title>
+    <script src="amrnb.js" defer></script>
+    <!--<script src="amrnb.min.js" defer></script>-->
+  </head>
+  <body>
+    <h1>AMR Sound Demo</h1>
+    <!-- All of the Node.js APIs are available in this renderer process. -->
+    We are using Node.js <script>document.write(process.versions.node)</script>,
+    Chromium <script>document.write(process.versions.chrome)</script>,
+    and Electron <script>document.write(process.versions.electron)</script>.
+
+<p>
+  <span class="bold">Play Base64 code:</span>
+  <button id='armPalyId'>Play</button>
+</p>
+
+<p>
+  <span class="bold">File in local disk:</span>
+  <button id="button">Play AMR file</button>
+  <input type="text" id="filepath" value="female.amr"></input>
+</p>
+<p>
+  <span class="bold">Slect a amr file:</span>
+  <input type="file" id="file" name="file" />
+</p>
+
+
+
+
+
+
+
+<script>
+    function E(selector) {
+        return document.querySelector(selector);
+    }
+
+    E('#armPalyId').onclick = function() {
+        var base = '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\r\n7OnjvN9w';
+
+        var data = _base64ToArrayBuffer(base);
+        playAmrArray(data);
+    }
+
+    function _base64ToArrayBuffer(base64) {
+        base64 = base64.replace(new RegExp(/\s/g),'')
+        var binary_string =  window.atob(base64);
+        var len = binary_string.length;
+        var bytes = new Uint8Array( len );
+        for (var i = 0; i < len; i++)        {
+            bytes[i] = binary_string.charCodeAt(i);
+        }
+        return bytes;
+    }
+
+        var gAudioContext;
+        function getAudioContext() {
+            if (!gAudioContext) {
+                if(window.AudioContext) {
+                    gAudioContext = new AudioContext();
+                } else {
+                    gAudioContext = new window.webkitAudioContext();
+                }
+            }
+            return gAudioContext;
+        }
+
+
+
+    function playAmrArray(data) {
+        if(window.AudioContext) {
+            var samples = AMR.decode(data);
+            if (!samples) {
+                alert('Failed to decode!');
+                return;
+            }
+            playPcm(samples);
+        } else {
+            var context = getAudioContext();
+            context.decodeAudioData(data.buffer, function(buffer) {
+                playSound(context, buffer);
+            })
+        }
+    }
+
+    function playPcm(samples) {
+        var context = getAudioContext();
+        var buffer = context.createBuffer(1, samples.length, 8000);
+        if (buffer.copyToChannel) {
+            buffer.copyToChannel(samples, 0, 0)
+        } else {
+            var channelBuffer = buffer.getChannelData(0);
+            channelBuffer.set(samples);
+        }
+        playSound(context, buffer);
+    }
+
+     var source
+    function playSound(context, buffer) {
+      if(source) source.stop();
+      source = context.createBufferSource(); 
+      source.buffer = buffer;                    
+      source.connect(context.destination);       
+      source.start();                           
+    }
+
+    document.getElementById('file').addEventListener('change', function (evt) {
+      handleFileSelect(evt);
+}, false);
+
+
+function handleFileSelect(evt) {
+    var f = evt.target.files[0]; // File Object
+
+    // Loop through the FileList and render image files as thumbnails.
+    var reader = new FileReader();
+     reader.readAsArrayBuffer(f); 
+
+  reader.onload = (function (file) {
+    return function (e) {
+      var extension = file.name.split(".")[1];
+
+      if (extension === "amr") {
+           playAmrArray(new Uint8Array(e.target.result));
+      }
+    }
+  })(f);
+}
+
+
+</script>
+
+    <script>
+      // You can also require other files to run in this process
+      require('./renderer.js')
+    </script>
+
+
+  </body>
+</html>
